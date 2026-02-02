@@ -21,13 +21,8 @@ const Contact = () => {
 						Contact
 					</h1>
 					<iframe
-						className="mx-auto mt-20"
-						src="https://docs.google.com/forms/d/e/1FAIpQLScwNeHTzWBtqQfUWpXMays6_LIKfvqzMof9bf-dUgjh-mXEag/viewform?embedded=true"
-						width="640"
-						height="1418"
-						frameborder="0"
-						marginheight="0"
-						marginwidth="0">
+						className="mx-auto mt-20 mb-20 w-full max-w-3xl h-[75vh] md:h-[120vh] border-0"
+						src="https://docs.google.com/forms/d/e/1FAIpQLScwNeHTzWBtqQfUWpXMays6_LIKfvqzMof9bf-dUgjh-mXEag/viewform?embedded=true">
 						Loading…
 					</iframe>
 				</div>
