@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className='font-saira'>
             <Navbar /> 
             <Outlet /> 
             <Footer /> 

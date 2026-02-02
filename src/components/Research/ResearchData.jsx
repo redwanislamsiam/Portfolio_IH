@@ -122,8 +122,8 @@ const ResearchData = () => {
         <div>
             <h1 className="text-white text-center text-2xl md:text-5xl mt-15 my-10 md:my-20 font-bold">My Researches</h1>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-				{datas.map((data) => (
-					<ResearchCard data={data} />
+				{datas.map((data, index) => (
+					<ResearchCard key={index} data={data} />
 				))}
 			</div>
 		</div>

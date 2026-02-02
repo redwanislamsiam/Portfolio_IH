@@ -1,7 +1,22 @@
+@font-face {
+  font-family: Anton;
+  src: url(../src/assets/font/Anton-Regular.ttf);
+}
+@font-face {
+  font-family: Saira;
+  src: url(../src/assets/font/Saira-Regular.ttf);
+}
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light --default;
 }
+
+@theme{
+  --font-anton: Anton, "sans-serif"; 
+  --font-saira: Saira, "sans-serif"; 
+}
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

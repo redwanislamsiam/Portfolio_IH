@@ -24,7 +24,7 @@ const ResearchCard = ({data}) => {
 								</li>
 							))}
 						</ul>
-						<p className="text-[10px] italic text-[#FFCF71]/90">
+						<p className="text-[10px] md:text-sm italic text-[#FFCF71]/90">
 							{data.journalName}, {data.journalPage}
 						</p>
 					</div>

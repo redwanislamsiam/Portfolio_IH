@@ -14,20 +14,21 @@ const Hero = () => {
 	return (
 		<div className="flex flex-col-reverse md:grid md:grid-cols-2 justify-around gap-10  my-20 md:my-80 ">
 			<div className="text-center mt-10 md:mt-20 ml-0 md:ml-20 mb-20 px-5 md:px-0">
+				{/* <h2 className=" text-2xl  text-white">Font check</h2> */}
 				<div className="h-20 md:h-full">
 					<TextType
 						text={[
 							{
-								value: "Hi! I am, ",
-								className: "text-3xl md:text-6xl text-center font-semibold text-gray-300",
+								value: "Hello! I am, ",
+								className: "text-3xl font-saira md:text-6xl text-center font-semibold text-gray-300",
 							},
 							{
 								value: "Md. Imran Hossain",
-								className: "text-3xl md:text-7xl text-center font-bold text-gray-300",
+								className: "text-3xl md:text-7xl font-saira text-center font-bold text-gray-300",
 							},
 							{
 								value: "I am an Assistant Professor",
-								className: "text-3xl md:text-6xl text-center font-semibold text-gray-300",
+								className: "text-3xl md:text-6xl font-saira text-center font-semibold text-gray-300",
 							},
 						]}
 						typingSpeed={30}

@@ -33,14 +33,14 @@ const Navbar = () => {
 					/>
 				</Link>
 				<Link to="/research" className="block my-5">
-					<BiSolidContact
+					<GiArchiveResearch
 						size={open ? 20 : 28}
 						color="white"
 						className="hover:drop-shadow-lg hover:scale-120 transition-transform"
 					/>
 				</Link>
-				<Link to="/archive" className="block my-5">
-					<GiArchiveResearch
+				<Link to="/contact" className="block my-5">
+					<BiSolidContact
 						size={open ? 20 : 28}
 						color="white"
 						className="hover:drop-shadow-lg hover:scale-120 transition-transform"
