@@ -27,7 +27,7 @@ const Hero = () => {
 								className: "text-3xl md:text-7xl font-saira text-center font-bold text-gray-300",
 							},
 							{
-								value: "I am an Assistant Professor",
+								value: "I am an Associate Professor",
 								className: "text-3xl md:text-6xl font-saira text-center font-semibold text-gray-300",
 							},
 						]}
