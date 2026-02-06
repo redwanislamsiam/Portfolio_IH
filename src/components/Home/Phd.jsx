@@ -19,7 +19,7 @@ const Phd = () => {
     const education = [
         {
             images: imagesPhd,
-            description: "I am currently employed as an assistant professor in the Department of Finance at Jagannath University in Dhaka, Bangladesh. In addition to that, I am continuing my Ph.D. at the School of Management, Universiti Sains Malaysia. Also, I am working as a graduate research assistant (GRA) in the School of Management, Universiti Sains Malaysia.", 
+            description: "I am currently employed as an associate professor in the Department of Finance at Jagannath University in Dhaka, Bangladesh. In addition to that, I am continuing my Ph.D. at the School of Management, Universiti Sains Malaysia. Also, I am working as a graduate research assistant (GRA) in the School of Management, Universiti Sains Malaysia.", 
         },
         {
             images: imagesBBA,
