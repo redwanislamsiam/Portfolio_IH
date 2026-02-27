@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "../assets/images/JUlogo.png";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
 	return (

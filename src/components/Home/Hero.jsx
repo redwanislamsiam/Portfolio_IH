@@ -7,9 +7,11 @@ import { FaResearchgate } from "react-icons/fa6";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { FaOrcid } from "react-icons/fa";
 import logo from "../../assets/images/JUlogo.png"; 
+import useAuthContext from "../../hooks/useAuthContext";
 
 
 const Hero = () => {
+	const { user } = useAuthContext(); 
 
 	return (
 		<div className="flex flex-col-reverse md:grid md:grid-cols-2 justify-around gap-10  my-20 md:my-80 ">
@@ -23,11 +25,11 @@ const Hero = () => {
 								className: "text-3xl font-saira md:text-6xl text-center font-semibold text-gray-300",
 							},
 							{
-								value: "Md. Imran Hossain",
+								value: `${user?.first_name} ${user?.last_name}`,
 								className: "text-3xl md:text-7xl font-saira text-center font-bold text-gray-300",
 							},
 							{
-								value: "I am an Associate Professor",
+								value: `I am an ${user?.designation||"Associate Professor"}`,
 								className: "text-3xl md:text-6xl font-saira text-center font-semibold text-gray-300",
 							},
 						]}
@@ -37,9 +39,6 @@ const Hero = () => {
 						cursorCharacter="_"
 						texts={["Welcome to React Bits! Good to see you!", "Build some amazing experiences!"]}
 						deletingSpeed={50}
-						variableSpeedEnabled={false}
-						variableSpeedMin={60}
-						variableSpeedMax={120}
 						cursorBlinkDuration={0.5}
 					/>
 				</div>

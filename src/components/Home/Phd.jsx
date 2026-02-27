@@ -1,37 +1,49 @@
-import React from 'react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { useEffect } from "react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import img1 from "../../assets/images/PhdImage/img1.jpg"; 
-import img2 from "../../assets/images/PhdImage/img2.jpg"; 
-import img3 from "../../assets/images/PhdImage/img3.jpg"; 
-import img4 from "../../assets/images/PhdImage/img4.jpg"; 
-import img5 from "../../assets/images/PhdImage/img5.jpg"; 
-import defaultImg from "../../assets/default.jpg"; 
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import defaultImg from "../../assets/default.jpg";
+import useEducationContext from "../../hooks/useEducationContext";
+import useAuthContext from "../../hooks/useAuthContext";
+import { Link } from "react-router";
+import { PiPlus } from "react-icons/pi";
+import SuccessAlert from "../alerts/SuccessAlert";
 
 const Phd = () => {
-    const imagesPhd= [img1, img2, img3, img4, img5]; 
-    const imagesBBA = [defaultImg, defaultImg, defaultImg]; 
-    
-    const education = [
-        {
-            images: imagesPhd,
-            description: "I am currently employed as an associate professor in the Department of Finance at Jagannath University in Dhaka, Bangladesh. In addition to that, I am continuing my Ph.D. at the School of Management, Universiti Sains Malaysia. Also, I am working as a graduate research assistant (GRA) in the School of Management, Universiti Sains Malaysia.", 
-        },
-        {
-            images: imagesBBA,
-            description: "I have completed my bachelor's (BBA) and master's (MBA) degrees from Jagannath University, Dhaka, Bangladesh. I started working as a lecturer at the same university in 2016 and have been there ever since. As a faculty member in the Finance Department, I have grown my research interest in the financial sector.", 
-        }
-    ]
+	const { user } = useAuthContext();
+	const { fetchEducation, educations, deleteEducation, sMsg, setSMsg } = useEducationContext();
 
 
-    return (
+	useEffect(() => {
+		fetchEducation();
+	}, []);
+
+
+	useEffect(() => {
+		if (sMsg) {
+			const timer = setTimeout(() => {
+				setSMsg(null);
+			}, 3000);
+			return () => clearTimeout(timer);
+		}
+	}, [sMsg]);
+
+	console.log(educations); 
+	return (
 		<div>
-			{education.map((e) => (
-				<div className="grid grid-cols-1 md:grid-cols-2 my-10 md:my-40">
+			{user && (
+				<Link to={"addEducation"}>
+					<button className="text-shadow-gray-600 text-sm lg:text-lg flex justify-between items-center my-10 lg:my-20 mx-auto btn bg-linear-to-l from-[#926114] hover:from-[#724d12] border-0 rounded-xl px-10 py-2 gap-3">
+						<span>Add New Degree</span>
+						<PiPlus size={23} className="stroke-20" />
+					</button>
+				</Link>
+			)}
+			{sMsg && <SuccessAlert err={sMsg} />}
+			{educations?.map((e, index) => (
+				<div key={index} className="grid grid-cols-1 md:grid-cols-2 my-10 md:my-40">
 					<div className="w-72 md:w-150 mx-auto bg-amber-600/20 rounded-xl shadow-xl shadow-white/15 p-2">
 						<Swiper
 							spaceBetween={30}
@@ -46,17 +58,46 @@ const Phd = () => {
 							}}
 							modules={[Autoplay, Pagination, Navigation]}
 							className="mySwiper">
-							{e.images.map((img, index) => (
-								<SwiperSlide key={index} className="">
-									<img src={img} alt="image" className="rounded-xl" />
+							{e?.images.length === 0 ?
+								<SwiperSlide>
+									<div className="aspect-[3/2] w-full">
+										<img
+											src={defaultImg}
+											alt="default"
+											className="w-full h-full object-cover rounded-xl"
+										/>
+									</div>
 								</SwiperSlide>
-							))}
+							:	e.images.map((img, index) => (
+									<SwiperSlide key={index}>
+										<div className="aspect-[3/2] w-full">
+											<img
+												src={img.image || defaultImg}
+												alt="image"
+												className="w-full h-full object-cover rounded-xl"
+											/>
+										</div>
+									</SwiperSlide>
+								))
+							}
 						</Swiper>
 					</div>
-					<div className="my-auto text-center mx-10 rounded-xl shadow-lg shadow-gray-700 mt-20  px-10 bg-gray-700/30 py-5 text-xs md:text-lg">
-						<p className="text-white">
-							{e.description}
-						</p>
+					<div className="flex flex-col justify-between gap-5 lg:gap-10 my-auto text-center mx-10 rounded-xl shadow-lg shadow-gray-700 mt-5 lg:mt-10  px-10 bg-gray-700/30 py-5 text-xs md:text-lg">
+						<p className="text-white">{e.description}</p>
+						{user && (
+							<div className="grid grid-cols-2">
+								<Link to={`editEducation/${e.id}`}>
+									<button className="btn btn-ghost hover:bg-blue-950 border-0 text-white mt-3 w-full">
+										Edit
+									</button>
+								</Link>
+								<button
+									onClick={() => deleteEducation(e.id)}
+									className="btn btn-ghost hover:bg-red-950 border-0 text-white mt-3 w-full">
+									Delete
+								</button>
+							</div>
+						)}
 					</div>
 				</div>
 			))}
