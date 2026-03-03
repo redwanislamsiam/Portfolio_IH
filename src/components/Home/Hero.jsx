@@ -25,7 +25,7 @@ const Hero = () => {
 								className: "text-3xl font-saira md:text-6xl text-center font-semibold text-gray-300",
 							},
 							{
-								value: `${user?.first_name} ${user?.last_name}`,
+								value: `Md. Imran Hossain`,
 								className: "text-3xl md:text-7xl font-saira text-center font-bold text-gray-300",
 							},
 							{

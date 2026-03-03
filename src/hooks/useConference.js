@@ -12,7 +12,7 @@ const useConference = () => {
 		const url = `/conferences/?search=${debouncedSearch}&page=${currentPage}&ordering=${sortOrder}&user_id=2`;
 		try {
 			const res = await authAPIClient.get(url);
-			console.log(res);
+			// console.log(res);
 			setConferences(res.data.results);
 			setTotalPages(Math.ceil(res.data.count / 12));
 		} catch (error) {
@@ -23,10 +23,10 @@ const useConference = () => {
 	};
 
 	const createConference = async (data) => {
-		console.log(data);
+		// console.log(data);
 		try {
 			const res = await authAPIClient.post(`/conferences/`, data);
-			console.log(res);
+			// console.log(res);
             if (res.status === 201) {
                 setSMsg("Created Successfully!")
 				await fetchConference();

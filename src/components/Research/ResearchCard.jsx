@@ -1,7 +1,6 @@
 import SpotlightCard from '../Common/SpotlightCard';
 import useAuthContext from '../../hooks/useAuthContext';
 import { Link } from 'react-router';
-import useResearchContext from '../../hooks/useResearchContext';
 
 const ResearchCard = ({ data, deleteResearch }) => {
 	const { user } = useAuthContext();
@@ -23,7 +22,7 @@ const ResearchCard = ({ data, deleteResearch }) => {
 							{data.researchers?.split(",").map((name, idx) => (
 								<li
 									key={idx}
-									className={`${name === "Md Imran Hossain" ? "text-[#FFCF71]" : "text-gray-300"} text-xs md:text-lg font-semibold`}>
+									className={`${name.trim() === "Md Imran Hossain" ? "text-[#FFCF71]" : "text-gray-300"} text-xs md:text-lg font-semibold`}>
 									{name}
 								</li>
 							))}
@@ -34,7 +33,20 @@ const ResearchCard = ({ data, deleteResearch }) => {
 					</div>
 				</SpotlightCard>
 			</a>
-			
+			{user && (
+				<div className="grid grid-cols-2">
+					<Link to={`/editResearch/${data.id}`}>
+						<button className="btn btn-ghost hover:bg-blue-950 border-0 text-white mt-2 w-full">
+							Edit
+						</button>
+					</Link>
+					<button
+						onClick={() => deleteResearch(data.id)}
+						className="btn btn-ghost hover:bg-red-950 border-0 text-white mt-2 w-full">
+						Delete
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };

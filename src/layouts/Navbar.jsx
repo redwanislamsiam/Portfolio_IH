@@ -27,7 +27,7 @@ const Navbar = () => {
 
 			{/* Sidebar */}
 			<div
-				className={`fixed top-1/3 left-2 md:left-5 z-10 w-fit bg-white/20 shadow-lg px-2 md:px-3 py-2 md:py-5 rounded-full h-fit 
+				className={`fixed top-1/3 left-2 md:left-5 z-60 w-fit bg-white/20 shadow-lg px-2 md:px-3 py-2 md:py-5 rounded-full h-fit 
         transform transition-transform duration-300
         ${open ? "translate-x-0" : "-translate-x-48"} 
         md:translate-x-0 md:block`}>

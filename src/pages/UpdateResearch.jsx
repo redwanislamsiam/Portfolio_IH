@@ -23,7 +23,7 @@ const UpdateResearch = () => {
 		setLoading(true);
 		try {
 			const res = await authAPIClient.get(`/researches/${researchId}/?user_id=2`);
-			console.log(res.data);
+			// console.log(res.data);
 			setResearch(res.data);
 		} catch (error) {
 			console.log(error);
@@ -45,12 +45,13 @@ const UpdateResearch = () => {
     }, [sMsg]);
     
 
+	if (loading) return <LoadingSpinner />; 
+
     return (
 		<div className="lg:w-1/2 mx-auto mb-40">
 			<h1 className="text-xl lg:text-3xl text-gray-300 font-bold my-10 lg:my-20 headTitle text-center">
 				Research Editing Form
 			</h1>
-			{loading && <LoadingSpinner />}
 			{sMsg && <SuccessAlert err={sMsg} />}
 			<div className="bg-[#161515d5] rounded-xl p-2">
 				<ResearchTitle e={research} smSize={smSize} onSave={updateResearch} />

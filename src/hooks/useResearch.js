@@ -17,7 +17,7 @@ const useResearch = () => {
         const url = `/researches/?search=${debouncedSearch}&page=${currentPage}&ordering=${sortOrder}&user_id=2`;
 		try {
 			const res = await authAPIClient.get(url);
-			console.log(res);
+			// console.log(res);
             setResearches(res.data.results);
             setTotalPages(Math.ceil(res.data.count / 12));
 		} catch (error) {
@@ -33,7 +33,7 @@ const useResearch = () => {
         console.log(data); 
         try {
             const res = await authAPIClient.post(`/researches/`, data);
-            console.log(res); 
+            // console.log(res); 
             if (res.status === 201) {
                 await fetchResearch();
                 return true; 

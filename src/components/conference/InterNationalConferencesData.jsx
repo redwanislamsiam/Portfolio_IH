@@ -16,7 +16,7 @@ const InterNationalConferencesData = () => {
     const [sortOrder, setSortOrder] = useState("");
     const { conferences, fetchConference, loading, totalPages, deleteConference, sMsg, setSMsg } = useConferenceContext(); 
     const { user } = useAuthContext();
-    console.log(conferences); 
+    // console.log(conferences); 
 
 
 	useEffect(() => {

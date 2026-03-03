@@ -22,7 +22,7 @@ const UpdateConference = () => {
 		setLoading(true);
 		try {
 			const res = await authAPIClient.get(`/conferences/${conferenceId}/?user_id=2`);
-			console.log(res.data);
+			// console.log(res.data);
 			setConference(res.data);
 		} catch (error) {
 			console.log(error);
@@ -43,13 +43,13 @@ const UpdateConference = () => {
 		}
 	}, [sMsg]);
 
+	if (loading) return <LoadingSpinner />; 
 
 	return (
 		<div className="lg:w-1/2 mx-auto mb-40">
 			<h1 className="text-xl lg:text-3xl text-gray-300 font-bold my-10 lg:my-20 headTitle text-center">
 				Conference Editing Form
 			</h1>
-			{loading && <LoadingSpinner />}
 			{sMsg && <SuccessAlert err={sMsg} />}
 			<div className="bg-[#161515d5] rounded-xl p-2">
 				<ConferenceShortTitle e={conference} smSize={smSize} onSave={updateConference} />

@@ -13,7 +13,7 @@ const useEducation = () => {
 		setLoading(true);
 		try {
 			const res = await authAPIClient.get("/educations/?user_id=2");
-			console.log(res.data);
+			// console.log(res.data);
 			setEducations(res.data);
 		} catch (error) {
 			console.log(error);
@@ -29,7 +29,7 @@ const useEducation = () => {
 		const formData = { ...data, end_time: data.end_time || null, description: data.description || null }
 		try{
 			const res = await authAPIClient.post(`/educations/`, formData);
-			console.log(res);
+			// console.log(res);
 			if (res.status === 201) {
 				setSMsg("Created Successfully!");
 				await fetchEducation();

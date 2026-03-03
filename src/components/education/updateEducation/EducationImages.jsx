@@ -12,7 +12,7 @@ const EducationImages = ({educationId}) => {
     const getImages = async () => {
 		try {
             const res = await authAPIClient.get(`/educations/${educationId}/images/?user_id=2`);
-            console.log(res); 
+            // console.log(res); 
 			setOldImages(res.data);
 		} catch (error) {
 			console.log(error);
@@ -29,7 +29,7 @@ const EducationImages = ({educationId}) => {
 			const res = await authAPIClient.delete(`/educations/${educationId}/images/${id}/?user_id=2`);
 			setOldImages((prevImages) => prevImages.filter((img) => img.id !== id));
 			alert("Image deleted successfully!");
-			console.log(res);
+			// console.log(res);
 		} catch (error) {
 			console.log(error);
 		}

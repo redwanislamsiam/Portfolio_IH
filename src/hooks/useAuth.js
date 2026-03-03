@@ -93,11 +93,11 @@ const useAuth = () => {
 
 	// Change Password
 	const changePassword = async (data) => {
-		console.log(data)
+		// console.log(data)
 		setErrorMsg("");
 		try {
 			const res = await authAPIClient.post("/auth/users/set_password/", data);
-			console.log(res); 
+			// console.log(res); 
 			if (res.status === 204) {
 				return {success: true}
 			}
