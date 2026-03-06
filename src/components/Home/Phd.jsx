@@ -30,7 +30,7 @@ const Phd = () => {
 		}
 	}, [sMsg]);
 
-	console.log(educations); 
+	// console.log(educations); 
 	return (
 		<div>
 			{user && (
